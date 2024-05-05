@@ -1,4 +1,7 @@
-Write SQL statements to perform the following tasks:
+# LAB 4
+
+## PART 1
+#### Write SQL statements to perform the following tasks:
 a. Retrieve all products from the "Products" table.
 select * from products;
 
@@ -46,3 +49,29 @@ select product_name, price from products where price > 100 AND price < 500;
 
 o. Update the price of all products in the "Electronics" category to be 5% lower.
 update products set price=price*0.95 where category_id in (select category_id from categories where category_name="Electronics");
+
+## PART 2
+
+SIMPLE QUERIES
+
+5.7	select * from hotel;
+
+5.8	select * from hotel where city="London";
+
+5.9	select guestName, guestAddress from guest where guestAddress="London" order by guestName;
+
+5.10	select * from room where price < 40 order by price;
+
+5.11	select * from booking where dateTo=null;
+
+AGGREGATE FUNCTIONS
+
+5.12	select count(hotelName) from hotel;
+
+5.13	select avg(price) as average_price_of_a_room from room;
+OR
+select type,avg(price) as average_price_of_a_room from room group by type;
+
+5.14	select sum(price) from room order by type;
+
+5.15	select * from guest inner join booking on guest.guestNo=booking.guestNo where dateFrom >="2023-08-01" AND dateTo <= "2023-08-31";
