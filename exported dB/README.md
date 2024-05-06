@@ -4,4 +4,6 @@
 - mysqldump -u USER_NAME -p --password=PASSWORD_DETAILS DATABASE > GIVE_THE_FILE_A_NAME.sql
 
 #### Please read the simple note below to import your db
+- This imports the database to the path you are currently in, while executing this command
+- You might need to explicitly point the file path accordingly
 - mysql -u USER_NAME -p --password=PASSWORD_DETAILS DATABASE < THE_FILE_A_NAME.sql
