@@ -75,3 +75,9 @@ select type,avg(price) as average_price_of_a_room from room group by type;
 5.14	select sum(price) from room order by type;
 
 5.15	select * from guest inner join booking on guest.guestNo=booking.guestNo where dateFrom >="2023-08-01" AND dateTo <= "2023-08-31";
+
+#### Part 3
+
+5.20    select room.roomNo from Room inner join on room.hotelNo=HotelNo inner join booking on booking.hotelNo=room.hotelNo where hotel.hotelName = "Governor" and booking.dateFrom="2024-06-15";
+
+5.21    select 
