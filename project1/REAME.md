@@ -17,4 +17,15 @@
 56. select * from assignment left join course on assignment.courseCode=course.courseCode where assignment.courseCode=null;
 57. select distinct * from student left join studentcourse on student.id=studentcourse.studentID left join course on studentcourse.courseCode = course.courseCode left join student_assignments on student_assignments.studentID=student.id where student_assignments.assignmentid !=null;
 58. select courseCode, name, count(courseCode) from course join assignment using (courseCode) join student_assignments on id=student_assignments.assignmentid join student on student.id=student_assignments.studentID where courseCode=101 group by courseCode,name having count(courseCode) LIKE (35);
+59. SELECT course.courseCode, AVG(grade.score) AS overall_avg_grade
+    FROM course
+    INNER JOIN studentcourse ON course.courseCode = studentcourse.courseCode
+    INNER JOIN grade ON studentcourse.gradeID = grade.id
+    GROUP BY course.courseCode
+    HAVING AVG(grade.score) > (
+    SELECT AVG(grade.score)
+    FROM studentcourse
+    INNER JOIN grade ON studentcourse.gradeID = grade.id
+    INNER JOIN student ON studentcourse.studentID = student.id
+    )
 60. select distinct name from student join studentcourse on student.id=studentcourse.studentID join course using (courseCode) join assignment on assignment.id=student.id where isSubmitted="F"; 
